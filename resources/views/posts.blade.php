@@ -6,10 +6,17 @@
     @foreach ($posts as $post) 
         <article class="article-preview">
             <h1>
-                <a href="/posts/{{ $post->id }}">
+                <a id="article-link" href="/posts/{{ $post->slug }}">
                     {!! $post->title !!}
+                </a> - 
+                <a id="category-link" href="/categories/{{ $post->category->slug }}">
+                    {{ $post->category->name }}
                 </a>
             </h1>
+
+            <h3>
+                Written by {{ $post->user->name }}
+            </h3>
 
             <div>
                 {{ $post->excerpt}}
